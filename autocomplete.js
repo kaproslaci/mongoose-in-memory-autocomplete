@@ -36,7 +36,7 @@ var autoComplete = (function(){
     var data = [];
 
     configuration.autoCompleteFields.forEach(function(item){
-      var field = _.get(doc, item).toString()
+      var field = _.isFunction(item) ? item(doc) : _.get(doc, item).toString();
       if(word === ""){
         lowerCased = field.toLowerCase();
         word = field;

@@ -35,13 +35,14 @@ var autoComplete = (function(){
     var data = [];
 
     configuration.autoCompleteFields.forEach(function(item){
+      var field = doc.get(item)
       if(word === ""){
-        lowerCased = doc[item].toLowerCase();
-        word = doc[item];
+        lowerCased = field.toLowerCase();
+        word = field;
       }
       else{
-        lowerCased += " " + doc[item].toLowerCase();
-        word += " " + doc[item];
+        lowerCased += " " + field.toLowerCase();
+        word += " " + field;
       }
     });
 

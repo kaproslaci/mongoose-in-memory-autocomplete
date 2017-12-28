@@ -1,4 +1,5 @@
 var Trie = require('./trie/trie.js').Trie;
+var _ = require('lodash')
 
 var autoComplete = (function(){
 
@@ -35,7 +36,7 @@ var autoComplete = (function(){
     var data = [];
 
     configuration.autoCompleteFields.forEach(function(item){
-      var field = doc.get(item)
+      var field = _.get(doc, item)
       if(word === ""){
         lowerCased = field.toLowerCase();
         word = field;
